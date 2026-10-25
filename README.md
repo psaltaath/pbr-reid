@@ -149,7 +149,7 @@ losses/                   L_fpt, L_cen, L_norm, L_bht, MixUp + BRM, adaptive-mar
 training/                 two-stage Trainer, optimizer factories, data pipeline
 evaluation/               mAP / CMC, k-reciprocal re-ranking
 tools/                    figure scripts (retrieval comparison, confusable-pair KDE, prototype t-SNE)
-scripts/                  download_backbones.py, reproduce.sh
+scripts/                  download_backbones.py
 tests/                    CPU unit tests (uv run pytest)
 third_party/dinov3        DINOv3 submodule
 ```

@@ -1,0 +1,5 @@
+# DukeMTMC-reID (702 train identities, 8 cameras)
+data:
+  dataset_name: dukemtmcreid
+system:
+  checkpoint_dir: runs/dukemtmc

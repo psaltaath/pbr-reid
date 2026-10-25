@@ -1,0 +1,7 @@
+# CUHK03-NP, detected bounding boxes (new protocol, Zhong et al. 2017)
+data:
+  dataset_name: cuhk03
+  cuhk03_mode: detected
+  cuhk03_protocol: new
+system:
+  checkpoint_dir: runs/cuhk03_detected

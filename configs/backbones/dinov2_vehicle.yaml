@@ -1,0 +1,6 @@
+# DINOv2 ViT-B/14 for vehicle datasets (patch-14 geometry 196x392).
+model:
+  backbone: dinov2
+data:
+  size_train: [196, 392]
+  size_test: [196, 392]

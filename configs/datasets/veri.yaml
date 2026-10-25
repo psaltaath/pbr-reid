@@ -1,0 +1,7 @@
+# VeRi-776 (576 train identities, 20 cameras). Vehicles are wide: (H, W) = (192, 384).
+data:
+  dataset_name: veri
+  size_train: [192, 384]
+  size_test: [192, 384]
+system:
+  checkpoint_dir: runs/veri

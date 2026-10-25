@@ -1,0 +1,8 @@
+# VehicleID (13164 train identities, no camera labels; S/M/L test splits)
+data:
+  dataset_name: vehicleid
+  vehicleid_test_variants: [S, M, L]
+  size_train: [192, 384]
+  size_test: [192, 384]
+system:
+  checkpoint_dir: runs/vehicleid

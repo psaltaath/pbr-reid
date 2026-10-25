@@ -1,0 +1,105 @@
+# PBR-ReID — paper recipe (WACV 2027 #296, Sec. 4.1 "Implementation details").
+# Every value here is the paper default. Dataset configs (configs/datasets/*.yaml)
+# only set the dataset name and, for vehicles, the input geometry; ablation
+# configs (configs/ablations/**) flip single knobs. Override anything from the
+# command line with --section.key value.
+
+model:
+  backbone: dinov3            # dinov3 | dinov2 | clip | imagenet  (Table 3)
+  model_tag: vitb16           # vitb16 (paper) | vitl16 | vith16plus (Supp. Table 1)
+  pretrain_dataset: lvd
+  dinov3_repo_dir: third_party/dinov3     # $PBR_DINOV3_REPO
+  dinov3_weights_dir: weights/dinov3      # $PBR_DINOV3_WEIGHTS
+  backbone_weights_dir: weights/backbones # $PBR_BACKBONE_WEIGHTS
+  prototype_init_gain: 0.5    # Xavier init gain
+  ema_decay: 0.999            # gamma_ema (0 = no EMA)
+
+data:
+  dataset_name: market1501
+  root_dir: data              # $PBR_DATA_ROOT
+  size_train: [384, 192]      # persons; vehicles use [192, 384]
+  size_test: [384, 192]
+  horizontal_flip_prob: 0.5
+  padding: 10
+  random_erase_prob: 0.5
+  sampler: pk                 # K' = 8 identities x N_k = 4 instances
+  train_batch_size: 32
+  num_instance: 4
+  test_batch_size: 128
+  num_workers: 8
+  pin_memory: true
+
+training:
+  num_epochs: 200
+  prototype_warmup_epochs: 10
+  eval_period: 10
+  log_interval: 100
+  weight_decay: 0.01
+  # stage 1 — prototypes only
+  warmup_lr: 1.0e-3
+  warmup_min_lr: 1.0e-4
+  # stage 2 — dual optimizers
+  use_dual_optimizers: true
+  encoder_lr: 1.0e-5
+  encoder_min_lr: 1.0e-7
+  encoder_scheduler: cosine
+  prototype_lr: 1.0e-1
+  prototype_scheduler: step
+  prototype_step_size: 15
+  prototype_gamma: 0.5
+  single_lr: 1.0e-5           # only when use_dual_optimizers: false
+  single_min_lr: 1.0e-7
+  # MixUp
+  enable_mixup: true
+  mixup_alpha: 0.4
+  mixup_prob: 1.0
+  mixup_mode: hard_target     # hard_target | neighbor_hard_target
+  mixup_neighbor_k: 5
+  mixup_neighbor_temperature: 1.0
+  # Boundary Repulsion MixUp
+  enable_brm: true
+  brm_tau: 0.7
+  brm_margin: 0.5
+  brm_beta: 0.7
+  brm_lambda: 0.4
+  # adaptive-margin prototype separation
+  enable_adaptive_separation: true
+  sep_gamma: 1.5
+  sep_ema_decay: 0.9
+  sep_weight: 1.0
+  sep_pair_scope: global      # global | batch
+
+loss:
+  enable_fpt: true
+  fpt_weight: 1.0
+  fpt_margin: 0.3
+  fpt_use_similarity_weighting: true
+  fpt_similarity_weight_strength: 2.0
+  enable_bht: true
+  bht_weight: 1.0
+  bht_margin: 0.3
+  enable_center: true
+  center_weight: 0.5
+  center_mean_type: frechet   # frechet | euclidean_projected
+  center_frechet_iterations: 2
+  center_use_similarity_weighting: true
+  center_similarity_weight_strength: 1.0
+  center_use_variance_weighting: true
+  center_variance_weight_strength: 2.5
+  center_stop_gradient_on_prototype: false
+  enable_norm: true
+  norm_weight: 0.005
+  enable_head: false
+  head: cosine                # cosine | arcface | cosface | circleloss | vpl
+
+evaluation:
+  max_rank: 50
+  rerank: false
+
+system:
+  device: cuda
+  mixed_precision: true
+  checkpoint_dir: checkpoints
+  save_logs: true
+  seed: 42
+  deterministic: true

@@ -1,0 +1,5 @@
+# IUST PersonReID (1193 train identities)
+data:
+  dataset_name: iustpersonreid
+system:
+  checkpoint_dir: runs/iust

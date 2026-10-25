@@ -1,0 +1,5 @@
+# MSMT17 (V2 release, 1041 train identities, 15 cameras)
+data:
+  dataset_name: msmt17v2
+system:
+  checkpoint_dir: runs/msmt17

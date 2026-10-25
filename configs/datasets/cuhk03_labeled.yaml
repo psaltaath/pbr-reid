@@ -1,0 +1,7 @@
+# CUHK03-NP, labeled bounding boxes (Supp. Table 3)
+data:
+  dataset_name: cuhk03
+  cuhk03_mode: labeled
+  cuhk03_protocol: new
+system:
+  checkpoint_dir: runs/cuhk03_labeled

@@ -1,0 +1,6 @@
+# DINOv2 ViT-B/14 (Table 3). Patch 14 -> person geometry 392x196; vehicles: stack with dinov2_vehicle instead.
+model:
+  backbone: dinov2
+data:
+  size_train: [392, 196]
+  size_test: [392, 196]

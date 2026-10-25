@@ -1,0 +1,29 @@
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# environments
+.venv/
+.env
+
+# data, weights, runs (never committed)
+data/*
+!data/.gitkeep
+weights/*
+!weights/.gitkeep
+runs/
+checkpoints/
+outputs/
+*.pth
+*.pt
+*.log
+
+# editor / os
+.vscode/
+.idea/
+.DS_Store

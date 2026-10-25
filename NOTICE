@@ -1,0 +1,14 @@
+PBR-ReID is released under the MIT License (see LICENSE).
+
+Third-party components:
+
+* third_party/dinov3 — facebookresearch/dinov3 (git submodule), distributed under
+  the DINOv3 License Agreement (see third_party/dinov3/LICENSE.md). The DINOv3
+  pretrained checkpoints are NOT part of this repository and must be obtained
+  from Meta under that license.
+* Dataset loaders in datasets/ follow the TransReID / CLIP-ReID conventions
+  (MIT). CLIP ViT-B/16 weights (OpenAI, MIT) and timm ViT weights
+  (Apache-2.0) used in the backbone ablation are downloaded by
+  scripts/download_backbones.py under their own licenses.
+* evaluation/reid.py includes an implementation of k-reciprocal re-ranking
+  (Zhong et al., CVPR 2017).

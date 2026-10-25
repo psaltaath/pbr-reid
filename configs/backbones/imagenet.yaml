@@ -1,0 +1,3 @@
+# Supervised ImageNet-21k->1k ViT-B/16 (timm augreg) (Table 3). Weights: scripts/download_backbones.py --backbones imagenet
+model:
+  backbone: imagenet

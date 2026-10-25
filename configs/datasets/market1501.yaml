@@ -1,0 +1,5 @@
+# Market-1501 (751 train identities, 6 cameras)
+data:
+  dataset_name: market1501
+system:
+  checkpoint_dir: runs/market1501

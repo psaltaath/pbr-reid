@@ -1,0 +1,3 @@
+# OpenAI CLIP ViT-B/16 image encoder (Table 3). Weights: scripts/download_backbones.py --backbones clip
+model:
+  backbone: clip

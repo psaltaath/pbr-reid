@@ -67,33 +67,18 @@ DINOv3 ViT-B/16, single query, **no re-ranking**. All values are in %.
 
 | Dataset | mAP | Rank-1 |
 |:--|:--:|:--:|
-| Market-1501 | **94.0** | **97.1** |
-| DukeMTMC-reID | **86.1** | **93.1** |
-| MSMT17 | **79.7** | **91.2** |
-| CUHK03-NP (detected) | **88.4** | **89.8** |
-| IUST | **55.2** | **63.8** |
+| Market-1501 | 94.0 | 97.1 |
+| DukeMTMC-reID | 86.1 | 93.1 |
+| MSMT17 | 79.7 | 91.2 |
+| CUHK03-NP (detected) | 88.4 | 89.8 |
+| IUST | 55.2 | 63.8 |
 
 ### Vehicle Re-Identification
 
 <table>
   <tr><th rowspan="2">Model</th><th colspan="2">VeRi-776</th><th colspan="2">VehicleID (large)</th></tr>
   <tr><th>mAP</th><th>Rank-1</th><th>Rank-1</th><th>Rank-5</th></tr>
-  <tr><td>PBR-ReID</td><td align="center"><b>88.0</b></td><td align="center"><b>98.1</b></td><td align="center"><b>90.2</b></td><td align="center"><b>96.0</b></td></tr>
-</table>
-
-### Different backbones
-
-Every backbone is trained and evaluated with the same settings.
-
-<table>
-  <tr><th rowspan="2">Backbone</th><th rowspan="2">#Params</th><th colspan="2">Market-1501</th><th colspan="2">DukeMTMC-reID</th></tr>
-  <tr><th>mAP</th><th>Rank-1</th><th>mAP</th><th>Rank-1</th></tr>
-  <tr><td>ViT-B/16 (ImageNet)</td><td align="center">86M</td><td align="center">92.2</td><td align="center">96.3</td><td align="center">84.1</td><td align="center">91.8</td></tr>
-  <tr><td>CLIP ViT-B/16</td><td align="center">86M</td><td align="center">93.4</td><td align="center">96.6</td><td align="center">85.4</td><td align="center">92.7</td></tr>
-  <tr><td>DINOv2 ViT-B/14</td><td align="center">86M</td><td align="center">93.7</td><td align="center">96.7</td><td align="center">85.9</td><td align="center">92.9</td></tr>
-  <tr><td><b>DINOv3 ViT-B/16 (default)</b></td><td align="center">86M</td><td align="center"><b>94.0</b></td><td align="center"><b>97.1</b></td><td align="center"><b>86.1</b></td><td align="center"><b>93.1</b></td></tr>
-  <tr><td>DINOv3 ViT-L/16</td><td align="center">300M</td><td align="center">94.8</td><td align="center">97.2</td><td align="center">89.7</td><td align="center">94.6</td></tr>
-  <tr><td>DINOv3 ViT-H+/16</td><td align="center">840M</td><td align="center">95.3</td><td align="center">97.4</td><td align="center">90.8</td><td align="center">95.1</td></tr>
+  <tr><td>PBR-ReID</td><td align="center">88.0</td><td align="center">98.1</td><td align="center">90.2</td><td align="center">96.0</td></tr>
 </table>
 
 The full tables are in the paper.

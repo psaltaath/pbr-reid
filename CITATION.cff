@@ -3,12 +3,19 @@ message: "If you use this code, please cite the paper."
 title: "PBR-ReID: Learning Discriminative Prototypes via Boundary Repulsion MixUp for Object Re-Identification"
 type: software
 license: MIT
-repository-code: "https://github.com/<org>/pbr-reid"
+repository-code: "https://github.com/psaltaath/pbr-reid"
 preferred-citation:
   type: conference-paper
   title: "Learning Discriminative Prototypes via Boundary Repulsion MixUp for Object Re-Identification"
-  collection-title: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  collection-title: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
   year: 2027
   authors:
-    - family-names: "<Author>"
-      given-names: "<Name>"
+    - family-names: "Psalta"
+      given-names: "Athena"
+      affiliation: "National Technical University of Athens"
+    - family-names: "Tsironis"
+      given-names: "Vasileios"
+      affiliation: "National Technical University of Athens"
+    - family-names: "Karantzalos"
+      given-names: "Konstantinos"
+      affiliation: "National Technical University of Athens"

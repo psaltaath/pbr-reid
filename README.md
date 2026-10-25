@@ -63,23 +63,17 @@ The full objective (Eq. 1) combines a feature-prototype triplet loss
 
 DINOv3 ViT-B/16, single query, **no re-ranking**. All values are in %.
 
-### Person Re-Identification
+| Dataset | Domain | mAP | Rank-1 |
+|:--|:--:|:--:|:--:|
+| Market-1501 | Person | 94.0 | 97.1 |
+| DukeMTMC-reID | Person | 86.1 | 93.1 |
+| MSMT17 | Person | 79.7 | 91.2 |
+| CUHK03-NP (detected) | Person | 88.4 | 89.8 |
+| IUST | Person | 55.2 | 63.8 |
+| VeRi-776 | Vehicle | 88.0 | 98.1 |
+| VehicleID (large) | Vehicle | – | 90.2 |
 
-| Dataset | mAP | Rank-1 |
-|:--|:--:|:--:|
-| Market-1501 | 94.0 | 97.1 |
-| DukeMTMC-reID | 86.1 | 93.1 |
-| MSMT17 | 79.7 | 91.2 |
-| CUHK03-NP (detected) | 88.4 | 89.8 |
-| IUST | 55.2 | 63.8 |
-
-### Vehicle Re-Identification
-
-<table>
-  <tr><th rowspan="2">Model</th><th colspan="2">VeRi-776</th><th colspan="2">VehicleID (large)</th></tr>
-  <tr><th>mAP</th><th>Rank-1</th><th>Rank-1</th><th>Rank-5</th></tr>
-  <tr><td>PBR-ReID</td><td align="center">88.0</td><td align="center">98.1</td><td align="center">90.2</td><td align="center">96.0</td></tr>
-</table>
+VehicleID is evaluated with Rank-k only, so no mAP is reported.
 
 The full tables are in the paper.
 

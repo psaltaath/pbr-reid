@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧲 PBR-ReID
+# PBR-ReID
 
 ### Learning Discriminative Prototypes via Boundary Repulsion MixUp for Object Re-Identification
 
@@ -10,15 +10,12 @@ National Technical University of Athens
 
 [![WACV 2027](https://img.shields.io/badge/WACV-2027-1f6feb.svg)](https://wacv.thecvf.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB.svg?logo=python&logoColor=white)](pyproject.toml)
-[![PyTorch 2.8+](https://img.shields.io/badge/PyTorch-2.8+-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Backbone: DINOv3](https://img.shields.io/badge/Backbone-DINOv3-8A2BE2.svg)](https://github.com/facebookresearch/dinov3)
 
 <img src="docs/figs/methodology1.png" width="90%">
 
 </div>
 
-> 🎉 **Accepted at WACV 2027!** This repository is the official reference implementation.
+🎉 **Accepted at WACV 2027!** This repository is the official reference implementation.
 
 **PBR-ReID** is a prototype-based object re-identification framework built on a
 DINOv3 backbone. Its core component, **Boundary Repulsion MixUp (BRM)**, is a
@@ -30,21 +27,18 @@ search, with no re-ranking and no camera embeddings.
 
 ## ✨ Highlights
 
-- **🎯 Learnable identity prototypes:** each identity has one prototype that is
+- **Learnable identity prototypes:** each identity has one prototype that is
   trained jointly with the encoder. The prototype similarity matrix **S** shows
   which identity pairs are confusable at every training step.
-- **🧲 Boundary Repulsion MixUp:** MixUp between a confusable pair estimates
+- **Boundary Repulsion MixUp:** MixUp between a confusable pair estimates
   the decision boundary between them. BRM pulls the mixed samples toward that
   boundary and pushes the real features away from it. An adaptive margin keeps
   the prototypes apart.
-- **🏗️ Stable two-stage training:** a prototype warmup with a frozen backbone,
+- **Stable two-stage training:** a prototype warmup with a frozen backbone,
   followed by EMA-stabilized joint fine-tuning with dual learning rates.
-- **🚀 Simple inference:** cosine nearest-neighbour retrieval on DINOv3
+- **Simple inference:** cosine nearest-neighbour retrieval on DINOv3
   features, with no re-ranking, camera embeddings or prototypes needed at test
   time.
-- **🔁 Fully reproducible:** every table and ablation in the paper ships as a
-  config override, with the exact command listed in
-  [docs/REPRODUCE.md](docs/REPRODUCE.md).
 
 ## 🔍 How it works
 
@@ -67,20 +61,40 @@ The full objective (Eq. 1) combines a feature-prototype triplet loss
 
 ## 📊 Results at a glance
 
-DINOv3 ViT-B/16, single query, **no re-ranking**. Each cell is mAP / Rank-1 (%).
+DINOv3 ViT-B/16, single query, **no re-ranking**. All values are in %.
 
-| Dataset | Domain | mAP | Rank-1 |
-|:--|:--:|:--:|:--:|
-| Market-1501 | 🚶 person | **94.0** | **97.1** |
-| DukeMTMC-reID | 🚶 person | **86.1** | **93.1** |
-| MSMT17 | 🚶 person | **79.7** | **91.2** |
-| CUHK03-NP (detected) | 🚶 person | **88.4** | **89.8** |
-| IUST | 🚶 person | **55.2** | **63.8** |
-| VeRi-776 | 🚗 vehicle | **88.0** | **98.1** |
-| VehicleID (large) | 🚗 vehicle | R-1 **90.2** | R-5 **96.0** |
+### Person Re-Identification
 
-**Larger backbones on Market-1501 (Supp. Table 1):** ViT-L/16 reaches
-94.8 / 97.2 and ViT-H+/16 reaches 95.3 / 97.4.
+| Dataset | mAP | Rank-1 |
+|:--|:--:|:--:|
+| Market-1501 | **94.0** | **97.1** |
+| DukeMTMC-reID | **86.1** | **93.1** |
+| MSMT17 | **79.7** | **91.2** |
+| CUHK03-NP (detected) | **88.4** | **89.8** |
+| IUST | **55.2** | **63.8** |
+
+### Vehicle Re-Identification
+
+<table>
+  <tr><th rowspan="2">Model</th><th colspan="2">VeRi-776</th><th colspan="2">VehicleID (large)</th></tr>
+  <tr><th>mAP</th><th>Rank-1</th><th>Rank-1</th><th>Rank-5</th></tr>
+  <tr><td>PBR-ReID</td><td align="center"><b>88.0</b></td><td align="center"><b>98.1</b></td><td align="center"><b>90.2</b></td><td align="center"><b>96.0</b></td></tr>
+</table>
+
+### Different backbones
+
+Every backbone is trained and evaluated with the same settings.
+
+<table>
+  <tr><th rowspan="2">Backbone</th><th rowspan="2">#Params</th><th colspan="2">Market-1501</th><th colspan="2">DukeMTMC-reID</th></tr>
+  <tr><th>mAP</th><th>Rank-1</th><th>mAP</th><th>Rank-1</th></tr>
+  <tr><td>ViT-B/16 (ImageNet)</td><td align="center">86M</td><td align="center">92.2</td><td align="center">96.3</td><td align="center">84.1</td><td align="center">91.8</td></tr>
+  <tr><td>CLIP ViT-B/16</td><td align="center">86M</td><td align="center">93.4</td><td align="center">96.6</td><td align="center">85.4</td><td align="center">92.7</td></tr>
+  <tr><td>DINOv2 ViT-B/14</td><td align="center">86M</td><td align="center">93.7</td><td align="center">96.7</td><td align="center">85.9</td><td align="center">92.9</td></tr>
+  <tr><td><b>DINOv3 ViT-B/16 (default)</b></td><td align="center">86M</td><td align="center"><b>94.0</b></td><td align="center"><b>97.1</b></td><td align="center"><b>86.1</b></td><td align="center"><b>93.1</b></td></tr>
+  <tr><td>DINOv3 ViT-L/16</td><td align="center">300M</td><td align="center">94.8</td><td align="center">97.2</td><td align="center">89.7</td><td align="center">94.6</td></tr>
+  <tr><td>DINOv3 ViT-H+/16</td><td align="center">840M</td><td align="center">95.3</td><td align="center">97.4</td><td align="center">90.8</td><td align="center">95.1</td></tr>
+</table>
 
 The full tables are in the paper.
 

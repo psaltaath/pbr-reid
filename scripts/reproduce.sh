@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Thin wrapper around the commands in docs/REPRODUCE.md.
+# Runs the training commands behind each table and figure of the paper.
 #   scripts/reproduce.sh table1                 # all seven datasets
 #   scripts/reproduce.sh table3  [dataset ...]  # CLIP / ImageNet / DINOv2 encoders
 #   scripts/reproduce.sh table4  [dataset ...]  # ArcFace / CosFace / Circle / VPL

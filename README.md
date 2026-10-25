@@ -55,9 +55,9 @@ search, with no re-ranking and no camera embeddings.
 4. **BRM loss:** the mixed samples are pulled toward the estimated boundary,
    and the real features are pushed out of a margin *m* around it.
 
-The full objective (Eq. 1) combines a feature-prototype triplet loss
-**L_fpt**, a batch-hard triplet loss **L_bht**, a Fréchet-mean center loss
-**L_cen**, a unit-norm regularizer **L_norm** and **L_BRM**.
+The full training objective combines the BRM loss with two triplet losses
+(feature-to-prototype and batch-hard between features), a prototype center loss
+and a soft unit-norm regularizer.
 
 ## 📊 Results at a glance
 

@@ -9,6 +9,7 @@
 National Technical University of Athens
 
 [![WACV 2027](https://img.shields.io/badge/WACV-2027-1f6feb.svg)](https://wacv.thecvf.com/)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.34305-b31b1b.svg)](https://arxiv.org/abs/2610.34305)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 <img src="docs/figs/methodology1.png" width="90%">
@@ -158,10 +159,13 @@ third_party/dinov3        DINOv3 submodule
 
 ```bibtex
 @inproceedings{psalta2027pbrreid,
-  title     = {Learning Discriminative Prototypes via Boundary Repulsion MixUp for Object Re-Identification},
-  author    = {Psalta, Athena and Tsironis, Vasileios and Karantzalos, Konstantinos},
-  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-  year      = {2027}
+  title         = {Learning Discriminative Prototypes via Boundary Repulsion MixUp for Object Re-Identification},
+  author        = {Psalta, Athena and Tsironis, Vasileios and Karantzalos, Konstantinos},
+  booktitle     = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year          = {2027},
+  eprint        = {2610.34305},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
 }
 ```
 

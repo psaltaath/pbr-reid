@@ -172,7 +172,7 @@ third_party/dinov3        DINOv3 submodule
 ## 🙏 Acknowledgements
 
 This work builds on [DINOv3](https://github.com/facebookresearch/dinov3) (Meta,
-DINOv3 License). 
+DINOv3 License).
 
 The dataset loaders follow
 [TransReID](https://github.com/damo-cv/TransReID) and
